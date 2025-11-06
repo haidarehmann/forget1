@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - David Fitness </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url(img2.jpg);
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .flex-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+            flex-direction: column;
+
+        }
+
+        .login-box {
+            padding: 10px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            background-color: rgba(177, 166, 166, 0.7);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .form-group input {
+            background-color: black;
+            color: white;
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .forget {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        h1 {
+            padding: 10px;
+            margin: 20px;
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        h2 {
+            padding: 10px;
+            margin: 20px;
+            color: black;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .create {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group label {
+            color: black;
+            font-size: 15px;
+            text-align: left;
+            width: 75%;
+        }
+
+        .signup-box {
+            padding: 3px;
+            margin: auto;
+            width: 55px;
+            border: none;
+            cursor: pointer;
+            color: rgb(8, 8, 139);
+            text-decoration: underline;
+        }
+
+        .input-box input {
+            padding: 10px;
+            color: aliceblue;
+            background-color: black;
+            width: 298px;
+        }
+
+        .input-box {
+            position: relative;
+            width: 75%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 40px 10px 10px;
+            /* add space for eye icon */
+            color: aliceblue;
+            background-color: black;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .input-box img {
+            position: absolute;
+            right: 10px;
+            width: 15px;
+            height: 25px;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            filter: brightness(0) invert(0.5); 
+        }
+         #para1 {
+            color: red;
+            font-size: 10px;
+            display: none;
+        }
+    </style>
+
+<body>
+    <!-- Log In Box -->
+    <h1>Let's Get Started</h1>
+    <div class="login-box">
+        <h2>Log In</h2>
+        <div class="form-group">
+            <label for="username">G-mail</label>
+            <input type="email" placeholder="Email or Phone" id="email" required>
+            <label for="password">Password</label>
+            <p id="para1">Your password is wrrong</p>
+
+            <div class="input-box">
+                <input type="password" placeholder="Enter your Password" id="password" required>
+                <img src="eye.png" id="eye">
+                <img src="hide.png" id="hide" style="display:none;">
+            </div>
+        </div>
+        <div class="form-buttons">
+            <a href="forget.html">
+                <button class="forget" id="forgetBtn">Forget Password</button>
+            </a>
+            <button type="submit" class="create" id="login">login</button>
+            <a class="signup-box" href="idx3.html">Signup</a>
+        </div>
+</body>
+<script type="module" src="login.js" defer></script>
+
+</html
