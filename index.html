@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,25 +99,30 @@
             filter: brightness(0) invert(0.5);
         }
 
-        #hide, #hide-confirm { 
-            display: none; 
+        #hide,
+        #hide-confirm {
+            display: none;
         }
+
         #para1 {
             color: red;
             font-size: 10px;
             display: none;
         }
+
         .signBtn {
             background: black;
             color: white;
             padding: 10px 20px;
-            margin: 15px 0;
+            margin: 10px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
+            align-items: center;
+            width: 20%;
+            top: 2px;
             position: relative;
             right: 75px;
-            top: 5px;
         }
 
         .login-box {
@@ -133,32 +137,26 @@
             top: -40px;
             position: relative;
             right: -65px;
-
         }
     </style>
 </head>
 
 <body>
-    <!-- SignUp Box -->
+     <!-- SignUp Box -->
     <div class="signup-box" id="signup">
         <h1>Sign Up</h1>
-
         <div class="form-group">
             <label for="g-mail">G-mail</label>
             <input type="email" id="g-mail" placeholder="Enter your G-mail">
-
             <label for="password">Password</label>
             <p id="para1">Password doesn't match</p>
-
             <div class="input-box">
                 <input type="password" id="password" placeholder="Enter your Password">
                 <img src="eye.png" id="eye" class="icon">
                 <img src="hide.png" id="hide">
             </div>
-
             <label for="confirm-password">Confirm Password</label>
             <p id="para1">Password doesn't match</p>
-
             <div class="input-box">
                 <input type="password" id="confirm-password" placeholder="Confirm your Password">
                 <img src="eye.png" id="eye-confirm" class="icon">
@@ -166,10 +164,8 @@
             </div>
             <button class="signBtn" id="signupbtn">Signup</button>
             <a class="login-box" href="main.html">Login</a>
-
         </div>
     </div>
-
     <script type="module" src="signup.js" defer></script>
 </body>
 

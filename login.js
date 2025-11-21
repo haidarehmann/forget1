@@ -55,10 +55,6 @@ login.addEventListener('click', async (e) => {
     alert("Email and Password required!");
     return;
   }
-   if (passVal) {
-    para.style.display = "block"
-    return
-  }
   try {
     const userCredential = await signInWithEmailAndPassword(auth, emailVal, passVal);
     console.log("Login successful:", userCredential.user);
@@ -70,3 +66,4 @@ login.addEventListener('click', async (e) => {
   }
 
 });
+

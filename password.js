@@ -1,50 +1,44 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBJ3CNK3ya5xUftrVh_1_Jaxz9PhnVs6U8",
-    authDomain: "abcd-8058f.firebaseapp.com",
-    projectId: "abcd-8058f",
-    storageBucket: "abcd-8058f.firebasestorage.app",
-    messagingSenderId: "778990594892",
-    appId: "1:778990594892:web:d0cd767d5e0bcf328d7de9"
+  apiKey: "AIzaSyBJ3CNK3ya5xUftrVh_1_Jaxz9PhnVs6U8",
+  authDomain: "abcd-8058f.firebaseapp.com",
+  databaseURL: "https://abcd-8058f-default-rtdb.firebaseio.com", // Important for Realtime DB
+  projectId: "abcd-8058f",
+  storageBucket: "abcd-8058f.firebasestorage.app",
+  messagingSenderId: "778990594892",
+  appId: "1:778990594892:web:d0cd767d5e0bcf328d7de9"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const db = getDatabase(app);
 
-// DOM
-const resetBtn = document.querySelector('#resetBtn');
-const Email = document.querySelector('#email');
+document.getElementById("resetBtn").addEventListener("click", async () => {
+  let email = document.getElementById("email").value.trim();
 
-resetBtn.addEventListener('click', async (e) => {
-  e.preventDefault();
-  let emailVal = Email.value.trim();
-
-  if (!emailVal) {
-    alert("Email required!");
+  if (!email) {
+    alert("Enter your email");
     return;
   }
 
   try {
-    await sendPasswordResetEmail(auth, emailVal);
-    alert(" Password reset link sent to your email!");
-    window.location.href = "otp.html";
-  } catch (error) {
-    console.error("Error:", error.code, error.message);
+    const hardcodedOTP = "123456";
 
-    //  Added: Custom error handling for unregistered users
-    if (error.code === 'auth/user-not-found') {
-      alert(" This email is not registered. Please sign up first.");
-    } 
-    
-    else if (error.code === 'auth/invalid-email') {
-      alert(" Please enter a valid email address.");
-    } 
-    else {
-      alert("Error: " + error.message);
-    }
+    // Replace all invalid characters (e.g., '.' in email) with commas
+    const safeEmail = email.replace(/\./g, ',');
+
+    // Store OTP in Realtime Database
+    await set(ref(db, `otps/${safeEmail}`), {
+      otp: hardcodedOTP,
+      createdAt: Date.now()
+    });
+
+    // alert(`Your OTP is: ${hardcodedOTP}`);
+    window.location.href = "otp.html"; // Redirect to OTP verification page
+  } 
+  catch (error) {
+    console.error(error);
+    alert("Error: " + error.message);
   }
 });
